@@ -4,10 +4,10 @@
 // @author       appdevelpo
 // @lang         en
 // @license      MIT
-// @icon         https://animepahe.ru/web-app-manifest-512x512.png
-// @package      animepahe.ru
+// @icon         https://animepahe.si/web-app-manifest-512x512.png
+// @package      animepahe.si
 // @type         bangumi
-// @webSite      https://animepahe.ru
+// @webSite      https://animepahe.si
 // @nsfw         false
 // ==/MiruExtension==
 
@@ -53,12 +53,12 @@ export default class extends Extension {
 
     const res = await this.request("", {
       headers: {
-        "Miru-Url": `https://animepahe.ru/anime/${url}`,
+        "Miru-Url": `https://animepahe.si/anime/${url}`,
       },
     });
-    // console.log(`https://animepahe.ru/anime/${url}`);
+    // console.log(`https://animepahe.si/anime/${url}`);
     const title = await this.querySelector(res,".user-select-none > span").text
-    const cover = res.match(/<a href="(https:\/\/i.animepahe.ru\/posters.+?)"/)[1];
+    const cover = res.match(/<a href="(https:\/\/i.animepahe.si\/posters.+?)"/)[1];
     const desc = await this.querySelector(res,".anime-synopsis").text
     // console.log(`/api?m=release&id=${url}`);
     const epRes = await this.request(`/api?m=release&id=${url}`)
@@ -99,7 +99,7 @@ export default class extends Extension {
     const url_split = url.split(';');
     const res = await this.request("", {
       headers: {
-        "Miru-Url": `https://animepahe.ru/play/${url_split[0]}`,
+        "Miru-Url": `https://animepahe.si/play/${url_split[0]}`,
       }
     })
     // console.log((/data-src="https:\/\/kwik.cx.+?"/g).exec(res)[parseInt(url_split[1])]);
